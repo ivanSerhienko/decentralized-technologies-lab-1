@@ -42,17 +42,16 @@ public class Main {
                 if(flag)
                     return System.currentTimeMillis()-time;
                 matchingKey.setCharAt(i, Character.toUpperCase(Integer.toHexString(j).charAt(0)));
-                flag = loop(i + 1, key);
+                flag = solution(i + 1, key);
             }
         }
         return System.currentTimeMillis()-time;
     }
-    public static boolean loop(int index, String key) {
+    public static boolean solution(int index, String key) {
         for(int i = 1; i < 16; i++) {
             matchingKey.setCharAt(index, Character.toUpperCase(Integer.toHexString(i).charAt(0)));
             if(index < matchingKey.length() - 1)
-                loop(index + 1, key);
-            //System.out.print(matchingKey + " ");
+                solution(index + 1, key);
             if (matchingKey.toString().equals(key)) {
                 return true;
             }
